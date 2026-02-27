@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Classic Snake</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hud">
+      <div class="title">Snake</div>
+      <div class="score">分数: <span id="score">0</span></div>
+      <button id="soundToggle" class="btn" type="button">声音: 开</button>
+      <button id="restart" class="btn" type="button">重新开始</button>
+    </header>
+
+    <section class="speed">
+      <label for="speed" class="speed-label">速度</label>
+      <input id="speed" type="range" min="1" max="10" value="5" />
+      <div class="speed-value"><span id="speedValue">5</span>/10</div>
+    </section>
+
+    <section class="board-wrap">
+      <canvas id="board" width="400" height="400" aria-label="Snake 游戏画布" role="img"></canvas>
+      <div id="overlay" class="overlay" aria-live="polite"></div>
+    </section>
+
+    <section class="controls" aria-label="移动控制">
+      <button class="btn" data-dir="up">↑</button>
+      <div class="row">
+        <button class="btn" data-dir="left">←</button>
+        <button class="btn" data-dir="down">↓</button>
+        <button class="btn" data-dir="right">→</button>
+      </div>
+    </section>
+
+    <p class="hint">键盘：方向键 / WASD。空格/回车暂停或重开。点击按钮也可移动。</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

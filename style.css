@@ -1,0 +1,161 @@
+:root {
+  --bg: #f2f0e8;
+  --panel: #ffffff;
+  --ink: #1d1b17;
+  --muted: #6a6154;
+  --snake: #2fbf71;
+  --snake-head: #1f8f52;
+  --food: #d94a3f;
+  --grid: #ded7cc;
+  --accent: #2a7db4;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 15% 0%, #ffffff, var(--bg)),
+    linear-gradient(120deg, #fdfbf7 0%, #f0ebe1 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  width: min(92vw, 520px);
+  background: var(--panel);
+  border: 1px solid #e8e5df;
+  padding: 16px 16px 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.hud {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+
+.score {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.btn {
+  border: 1px solid #d5d0c8;
+  background: #f7f4ef;
+  color: var(--ink);
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.speed {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  margin: 6px 0 12px;
+}
+
+.speed-label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+#speed {
+  width: 100%;
+  accent-color: var(--snake);
+}
+
+.speed-value {
+  font-size: 12px;
+  color: var(--muted);
+  min-width: 44px;
+  text-align: right;
+}
+
+.board-wrap {
+  position: relative;
+  border: 1px solid #dcd7cf;
+  background: #faf8f3;
+}
+
+#board {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--ink);
+  background: rgba(250, 248, 243, 0.7);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms linear;
+}
+
+.overlay.show {
+  opacity: 1;
+}
+
+.controls {
+  margin-top: 12px;
+  display: grid;
+  gap: 6px;
+  justify-content: center;
+}
+
+.controls .row {
+  display: grid;
+  grid-template-columns: repeat(3, 44px);
+  gap: 6px;
+  justify-content: center;
+}
+
+.controls > .btn {
+  width: 44px;
+  justify-self: center;
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 420px) {
+  .hud {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  #board {
+    height: 320px;
+  }
+}
